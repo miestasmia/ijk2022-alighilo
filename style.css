@@ -1,0 +1,9 @@
+main {
+	padding: 0 2em;
+	margin: 2em auto;
+	max-width: 800px;
+}
+
+#mangho-tabelo tr>* {
+	text-align: center;
+}

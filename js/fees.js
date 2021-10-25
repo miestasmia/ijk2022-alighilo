@@ -77,8 +77,14 @@ function getFees () {
 			.reduce((a, b) => a + b, 0);
 	}
 
+	let donation = 0;
+	if ($$('#kampo-donaco').value) {
+		donation = parseInt($$('#kampo-donaco').value, 10);
+		totalFee += donation;
+	}
+
 	return {
-		baseFees, otherFees, baseFee, totalFee
+		baseFees, otherFees, baseFee, totalFee, donation
 	};
 }
 
@@ -108,6 +114,10 @@ function renderFee () {
 	$$('#kotizo-nemembro').innerHTML = fees.otherFees.member === 0 ?
 		'' :
 		`Malrabato pro nemembreco: ${formatMoney(fees.otherFees.member)}<br>`;
+
+	$$('#kotizo-donaco').innerHTML = fees.donation === 0 ?
+		'' :
+		`Donaco al la IJK: ${formatMoney(fees.donation)}<br>`;
 }
 
 function getProgramFee () {

@@ -38,9 +38,9 @@ function toggleDateFields () {
 	const hidden = $$('#kampo-partopreno-plentempa').checked;
 	const datePickerDiv = $$('#kamparo-partopreno');
 	setVisible(datePickerDiv, !hidden);
-	const inputs = $('input', datePickerDiv);
+	const inputs = $('input,select', datePickerDiv);
 	inputs.forEach(el => {
-		el.required = !hidden;
+		setBoolAttribute(el, 'required', !hidden);
 	});
 	updateRequiredStars();
 
@@ -87,7 +87,20 @@ $('#kampo-partopreno-plentempa,#kampo-alveno,#kampo-foriro').forEach(el => el.ad
 toggleDateFields();
 
 function toggleVisaFields () {
-	setVisible($$('#kamparo-vizo'), $$('#kampo-vizo').checked);
+	const fieldGroup = $$('#kamparo-vizo');
+	const visible = $$('#kampo-vizo').checked;
+	setVisible(fieldGroup, visible);
+
+	const inputs = $('input,select', fieldGroup);
+	inputs.forEach(el => {
+		setBoolAttribute(el, 'required', visible);
+	});
 }
 toggleVisaFields();
 $$('#kampo-vizo').addEventListener('change', toggleVisaFields);
+
+function toggleMemberField () {
+	setVisible($$('#kamparo-ueakodo'), $$('#kampo-membreco').checked);
+}
+toggleMemberField();
+$$('#kampo-membreco').addEventListener('change', toggleMemberField);

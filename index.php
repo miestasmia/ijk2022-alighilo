@@ -196,7 +196,7 @@
                       echo '<td></td>';
                       continue;
                     }
-                    echo "<td><input class=\"form-check-input\" name=\"kampo-mangho-$i\" type=\"checkbox\" checked></td>";
+                    echo "<td><input class=\"form-check-input\" name=\"kampo-mangho-$i-$j\" type=\"checkbox\" checked></td>";
                   }
 
                   echo '</tr>';
@@ -351,6 +351,7 @@
           <span id="kotizo-chemizo"></span>
         </div>
         <div class="col-4">
+          <span id="kotizo-donaco"></span>
           <strong>Via plena kotizo: <span id=kotizo-plena>kalkulota</span></strong>
         </div>
       </div>

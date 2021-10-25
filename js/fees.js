@@ -14,7 +14,6 @@ const COUNTRY_GROUPS = [
 
 		'AU', 'JP', 'CA', 'NZ', 'KR', 'US',
 	],
-
 ];
 
 const SIGNUP_PERIODS = [
@@ -79,7 +78,9 @@ function getFees () {
 
 	let donation = 0;
 	if ($$('#kampo-donaco').value) {
-		donation = parseInt($$('#kampo-donaco').value, 10);
+		donation = parseFloat($$('#kampo-donaco').value);
+		donation = Math.max(donation, 0);
+		donation = Math.min(donation, 10000);
 		totalFee += donation;
 	}
 

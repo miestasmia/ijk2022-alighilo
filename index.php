@@ -1,5 +1,18 @@
 <?php
-  $countrySelect = '';
+  setlocale(LC_ALL, 'eo');
+  require('countries.php');
+  $countrySelectArr = array_map(
+    function ($arr) {
+      $emojiRange = array_map(function ($codepoint) {
+        return '&#' . $codepoint . ';';
+      }, range(127462, 127847));
+      $emoji = str_replace(range('A', 'Z'), $emojiRange, $arr[0]);
+      return '<option value="' . $arr[0] . '">' . "$emoji " . $arr[1] . '</option>';
+    },
+    $countries
+  );
+  array_unshift($countrySelectArr, '<option selected disabled value="">- Bonvolu elekti -</option>');
+  $countrySelect = implode('\n', $countrySelectArr);
 ?>
 
 <!doctype html>
@@ -15,6 +28,26 @@
     <title>Aliĝi al IJK 2022 en Nederlando</title>
   </head>
   <body>
+      <section id="kotizo">
+        <div>
+          <h3>Via kotizo:</h3>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            Programkotizo: <span id="kotizo-programo">kalkulota</span><br>
+            Aliĝperiodo: <span id="kotizo-periodo">kalkulota</span><br>
+            Loĝado: <span id="kotizo-loghado">kalkulota</span>
+          </div>
+          <div class="col-4">
+            Manĝoj: <span id="kotizo-manghoj">kalkulota</span><br>
+            <span id="kotizo-nemembro"></span>
+            <span id="kotizo-chemizo"></span>
+          </div>
+          <div class="col-4">
+            <strong>Via plena kotizo: <span id=kotizo-plena>kalkulota</span></strong>
+          </div>
+        </div>
+      </section>
       <main>
       <h1>Aliĝilo de la IJK 2022 en De Roerdomp, Westelbeers, Nederlando</h1>
       <form method="post" action="alighi.php">
@@ -68,10 +101,10 @@
         </div>
 
         <div class="mb-3 form-check form-switch">
-          <input name="membreco" id="kampo-membreco" type="checkbox" class="form-check-input" checked>
+          <input name="membreco" id="kampo-membreco" type="checkbox" class="form-check-input">
           <label for="kampo-membreco">Mi estas individua membro (IM) aŭ patrono de TEJO</label>
           <div class="form-text">
-            Se vi ne estas individua membro aŭ patrono de TEJO vi devas krompagi €50. <a href="https://uea.org/alighoj/alighilo">Estas pli malmultekosta aliĝi al TEJO</a>.
+            Se vi estas individua membro aŭ patrono de TEJO vi ricevos rabaton de €50. <a href="https://uea.org/alighoj/alighilo">Estas pli malmultekosta aliĝi al TEJO</a> ol ne ricevi la rabaton.
           </div>
         </div>
 
@@ -307,7 +340,7 @@
 
         <div class="mb-3 form-check form-switch">
           <input id="kampo-antaupago" type="checkbox" class="form-check-input" required>
-          <label for="kampo-antaupago">Mi komprenas, ke mia aliĝo ne estos valida ĝis mi antaŭpagis</label>
+          <label for="kampo-antaupago">Mi komprenas, ke mi devas antaŭpagi minimume €20 por ke mia aliĝo estu valida</label>
         </div>
 
         <div class="mb-3 form-check form-switch">
@@ -323,6 +356,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/moment.min.js"></script>
     <script src="js/dom.js"></script>
     <script src="js/main.js"></script>
   </body>

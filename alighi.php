@@ -1,3 +1,4 @@
 <?php
-	echo 'Test';
+	header('Content-Type: text/plain');
+	var_dump($_POST);
 ?>

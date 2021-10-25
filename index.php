@@ -9,15 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="icon-small.png" sizes="32x32">
+    <link rel="icon" href="icon.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="icon-apple.png">
     <title>Aliĝi al IJK 2022 en Nederlando</title>
   </head>
   <body>
       <main>
       <h1>Aliĝilo de la IJK 2022 en De Roerdomp, Westelbeers, Nederlando</h1>
-      <form>
+      <form method="post" action="alighi.php">
         <div class="mb-3">
           <label for="kampo-nomo">Via plena nomo</label>
-          <input name="nomo" id="kampo-nomo" class="form-control" required>
+          <input name="nomo" id="kampo-nomo" class="form-control" required maxlength="100">
           <div class="form-text">
             Via plena nomo tiel kiel aperas en via pasporto.
           </div>
@@ -25,7 +28,7 @@
 
         <div class="mb-3">
           <label for="kampo-shildnomo">Via ŝildnomo</label>
-          <input name="shildnomo" id="kampo-shildnomo" class="form-control">
+          <input name="shildnomo" id="kampo-shildnomo" class="form-control" maxlength="30">
           <div class="form-text">
             La nomo kiun vi volas sur via nomŝildo, se alia ol via plena nomo.
           </div>
@@ -33,7 +36,7 @@
 
         <div class="mb-3">
           <label for="kampo-retposhtadreso">Via retpoŝtadreso</label>
-          <input name="retposhtadreso" id="kampo-retposhtadreso" type="email" class="form-control" required>
+          <input name="retposhtadreso" id="kampo-retposhtadreso" type="email" class="form-control" maxlength="200" required>
           <div class="form-text">
             Via retpoŝtadreso. Kontrolu ke ĝi estas ĝusta, ĉar ni sendos al ĝi informojn.
           </div>
@@ -58,7 +61,7 @@
 
         <div class="mb-3">
           <label for="kampo-shildlando">Via ŝildlando</label>
-          <input name="shildlando" id="kampo-shildlando" class="form-control">
+          <input name="shildlando" id="kampo-shildlando" class="form-control" maxlength="20">
           <div class="form-text">
             Se vi volas aperigi alian landon ol tiu en kiu vi loĝas, skribu tion tie ĉi.
           </div>
@@ -303,6 +306,11 @@
         </div>
 
         <div class="mb-3 form-check form-switch">
+          <input id="kampo-antaupago" type="checkbox" class="form-check-input" required>
+          <label for="kampo-antaupago">Mi komprenas, ke mia aliĝo ne estos valida ĝis mi antaŭpagis</label>
+        </div>
+
+        <div class="mb-3 form-check form-switch">
           <input id="kampo-regularo" type="checkbox" class="form-check-input" required>
           <label for="kampo-regularo">Mi legis, komprenis kaj akceptas la regularon de la IJK</label>
           <div class="form-text">
@@ -315,5 +323,7 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="js/dom.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

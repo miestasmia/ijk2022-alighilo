@@ -7,3 +7,8 @@ main {
 #mangho-tabelo tr>* {
 	text-align: center;
 }
+
+.label-required:before {
+	color: red;
+	content: '* ';
+}

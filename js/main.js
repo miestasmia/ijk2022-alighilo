@@ -85,3 +85,9 @@ function toggleDateFields () {
 }
 $('#kampo-partopreno-plentempa,#kampo-alveno,#kampo-foriro').forEach(el => el.addEventListener('change', toggleDateFields));
 toggleDateFields();
+
+function toggleVisaFields () {
+	setVisible($$('#kamparo-vizo'), $$('#kampo-vizo').checked);
+}
+toggleVisaFields();
+$$('#kampo-vizo').addEventListener('change', toggleVisaFields);

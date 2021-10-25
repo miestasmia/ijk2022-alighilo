@@ -328,7 +328,7 @@
           <input id="kampo-regularo" type="checkbox" class="form-check-input" required>
           <label for="kampo-regularo">Mi legis, komprenis kaj akceptas la regularon de la IJK</label>
           <div class="form-text">
-            <a href="https://ijk2022.tejo.org/reguloj-por-agrable-ijk-umi/">Tie ĉi vi povas legi la regulojn.</a>
+            <a href="https://ijk2022.tejo.org/reguloj-por-agrable-ijk-umi/" target="_blank">Tie ĉi vi povas legi la regulojn.</a>
           </div>
         </div>
 

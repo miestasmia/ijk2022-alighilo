@@ -131,7 +131,7 @@
 
         <div class="mb-3">
           <label for="kampo-kunloghado">Mi volas loĝi en ĉambro por …</label>
-          <select name="loghado" id="kampo-kunloghado" class="form-select" required>
+          <select name="kunloghado" id="kampo-kunloghado" class="form-select" required>
             <option value="viroj">Viroj</option>
             <option value="virinoj">Virinoj</option>
             <option value="familioj">Familioj</option>
@@ -145,7 +145,7 @@
 
         <div class="mb-3">
           <label for="kampo-kunloghanto">Mi volas loĝi kun …</label>
-          <input name="kunloghanto" id="kampo-kunloghanto" class="form-control">
+          <input name="kunloghanto" id="kampo-kunloghanto" class="form-control" maxlength="200">
           <div class="form-text">
             Se estas specifa(j) homo(j) kun kiu(j) vi ŝatus kunloĝi, metu ties nomo(j)n ĉi tien.
           </div>
@@ -196,7 +196,7 @@
                       echo '<td></td>';
                       continue;
                     }
-                    echo "<td><input class=\"form-check-input\" name=\"kampo-mangho-$i-$j\" type=\"checkbox\" checked></td>";
+                    echo "<td><input class=\"form-check-input\" name=\"mangho-$i-$j\" type=\"checkbox\" checked></td>";
                   }
 
                   echo '</tr>';

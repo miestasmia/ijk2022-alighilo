@@ -26,6 +26,9 @@
     <link rel="icon" href="icon.png" sizes="192x192">
     <link rel="apple-touch-icon-precomposed" href="icon-apple.png">
     <title>Aliĝi al IJK 2022 en Nederlando</title>
+    <meta property="og:site_name" content="IJK 2022">
+    <meta name="description" content="La 78a IJK de TEJO okazos en De Roerdomp – Westelbeers, Nederlando, inter la 20-a kaj la 27-a de aŭgusto 2022. Ĝin organizos la Nederlanda Esperanto-Junularo.">
+    <meta property="og:description" content="La 78a IJK de TEJO okazos en De Roerdomp – Westelbeers, Nederlando, inter la 20-a kaj la 27-a de aŭgusto 2022. Ĝin organizos la Nederlanda Esperanto-Junularo.">
   </head>
   <body>
       <main>

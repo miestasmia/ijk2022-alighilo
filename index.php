@@ -93,7 +93,7 @@
 
         <div class="mb-3" id="kamparo-ueakodo">
           <label for="kampo-ueakodo">Via UEA-kodo</label>
-          <input name="ueakodo" id="kampo-ueakodo" maxlength="6" class="form-control">
+          <input name="ueakodo" id="kampo-ueakodo" maxlength="6" pattern="[A-Za-z]{4}-[A-Za-z]" class="form-control">
           <div class="form-text">
             Bonvolu enmeti vian UEA-kodon. Se vi ĝin ne scias/memoras lasu la kampon malplena.
           </div>

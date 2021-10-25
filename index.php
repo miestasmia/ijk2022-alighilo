@@ -84,7 +84,7 @@
           <input name="membreco" id="kampo-membreco" type="checkbox" class="form-check-input">
           <label for="kampo-membreco">Mi estas individua membro (IM) aŭ patrono de TEJO</label>
           <div class="form-text">
-            Se vi estas individua membro aŭ patrono de TEJO vi ne ricevos malrabaton de €50. <a href="https://uea.org/alighoj/alighilo">Estas pli malmultekosta aliĝi al TEJO</a> ol ne ricevi la rabaton.
+            Se vi estas individua membro aŭ patrono de TEJO vi ne pagos malrabaton de €50. <a href="https://uea.org/alighoj/alighilo">Estas pli malmultekosta aliĝi al TEJO</a> ol ne ricevi la rabaton.
           </div>
         </div>
 
@@ -185,7 +185,7 @@
             <tbody>
               <?php
                 for ($i = 20; $i <= 27; $i++) {
-                  echo '<tr>';
+                  echo '<tr data-date="' . $i . '">';
 
                   echo "<th>la $i-a</th>";
                   for ($j = 0; $j < 3; $j++) {
@@ -206,7 +206,7 @@
                 <th></th>
                 <?php
                   for ($i = 0; $i < 3; $i++) {
-                    echo '<td><button type="button" class="btn btn-primary">(Mal)elekti ĉiujn</button></td>';
+                    echo '<td><button type="button" class="btn btn-primary" id="mangho-butono-' . $i . '">(Mal)elekti ĉiujn</button></td>';
                   }
                 ?>
               </tr>
@@ -359,6 +359,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/dom.js"></script>
+    <script src="js/fees.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

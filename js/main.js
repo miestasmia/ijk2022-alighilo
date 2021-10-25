@@ -47,14 +47,73 @@ const FOOD_FEES = {
 
 const FREE_T_SHIRT_DATE = moment('2021-11-09');
 
-function getFee () {
-	const programFee = getProgramFee();
-	const signupFee = getSignupFee();
-	const housingFee = getHousingFee();
-	const foodFee = getFoodFee();
+// Auto render fees
+$('main>form input,main>form select').forEach(el =>
+	el.addEventListener('change', renderFee)
+);
+renderFee();
 
-	const memberFee = $$('#kampo-membreco').checked ? 0 : 50;
-	const tShirt = getTShirtPrice();
+function formatMoney (num) {
+	return Intl.NumberFormat('de-DE', {
+		style: 'currency',
+		currency: 'EUR'
+	}).format(num);
+}
+
+function getFees () {
+	const baseFees = {
+		program: getProgramFee(),
+		signup: getSignupFee(),
+		housing: getHousingFee(),
+		food: getFoodFee(),
+	};
+	const otherFees = {
+		member: $$('#kampo-membreco').checked ? 0 : 50,
+		tShirt: getTShirtPrice(),
+	};
+
+	let baseFee = null;
+	let totalFee = null;
+	const hasNull = Object.values(baseFees).includes(null);
+	if (!hasNull) {
+		baseFee = Object.values(baseFees).reduce((a, b) => a + b, 0)
+		totalFee = baseFee;
+		totalFee += Object.values(otherFees)
+			.filter(x => x !== null)
+			.reduce((a, b) => a + b, 0);
+	}
+
+	return {
+		baseFees, otherFees, baseFee, totalFee
+	};
+}
+
+function renderFee () {
+	const fees = getFees();
+
+	$$('#kotizo-programo').textContent = fees.baseFees.program === null ?
+		'kalkulota' :
+		formatMoney(fees.baseFees.program);
+
+	$$('#kotizo-periodo').textContent = formatMoney(fees.baseFees.signup);
+
+	$$('#kotizo-loghado').textContent = fees.baseFees.housing === null ?
+		'kalkulota' :
+		formatMoney(fees.baseFees.housing);
+
+	$$('#kotizo-manghoj').textContent = formatMoney(fees.baseFees.food);
+
+	$$('#kotizo-chemizo').textContent = fees.otherFees.tShirt === null ?
+		'' :
+		`T-ĉemizo: ${formatMoney(fees.otherFees.tShirt)}`;
+
+	$$('#kotizo-plena').textContent = fees.totalFee === null ?
+		'kalkulota' :
+		formatMoney(fees.totalFee);
+
+	$$('#kotizo-nemembro').innerHTML = fees.otherFees.member === 0 ?
+		'' :
+		`Malrabato pro nemembreco: ${formatMoney(fees.otherFees.member)}<br>`;
 }
 
 function getProgramFee () {
@@ -90,7 +149,6 @@ function getSignupFee () {
 
 function getHousingFee () {
 	const housingType = $$('#kampo-loghado').value;
-	console.log(housingType)
 	if (!housingType) { return null; }
 	return HOUSING_FEE[housingType];
 }

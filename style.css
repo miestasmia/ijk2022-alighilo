@@ -4,7 +4,8 @@ body {
 }
 
 main {
-	padding: calc(150px + 2em) 2em;
+	padding: 2em;
+	padding-top: calc(150px + 2em);
 	margin: 0 auto;
 	max-width: 800px;
 }
@@ -20,10 +21,23 @@ main {
 
 #kotizo {
 	height: 150px;
-	width: 100vw;
+	width: 100%;
 	position: fixed;
+	top: 0;
 	background: #ccc;
 	border-bottom: 2px #ddd;
 	padding: 1em;
 	z-index: 100;
+}
+
+@media (max-width: 900px) {
+	#kotizo {
+		position: static;
+		height: unset;
+		border-bottom: unset;
+	}
+
+	main {
+		padding-top: 2em;
+	}
 }

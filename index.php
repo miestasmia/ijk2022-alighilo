@@ -136,12 +136,13 @@
         <div class="mb-3">
           <label for="kampo-loghado">Mi loĝos en …</label>
           <select name="loghado" id="kampo-loghado" class="form-select" required>
-            <option name="1">Luksa unuopa ĉambro (€250)</option>
-            <option name="2">Luksa duopa ĉambro (€100)</option>
-            <option name="kelk">Lukseta ĉambro (4-6 homoj) (€50)</option>
-            <option name="amas">Amasĉambro (€35)</option>
-            <option name="tipio">Tipio ekstera por 8 personoj (€20)</option>
-            <option name="tendo">Propra tendo ekstere (€20)</option>
+            <option value="" selected disabled>- Bonvolu elekti -</option>
+            <option value="1">Luksa unuopa ĉambro (€250)</option>
+            <option value="2">Luksa duopa ĉambro (€100)</option>
+            <option value="kelk">Lukseta ĉambro (4-6 homoj) (€50)</option>
+            <option value="amas">Amasĉambro (€35)</option>
+            <option value="tipio">Tipio ekstera por 8 personoj (€20)</option>
+            <option value="tendo">Propra tendo ekstere (€20)</option>
           </select>
           <div class="form-text">
             Vidu fotojn kaj pliajn informojn pri la loĝebloj <a href="https://ijk2022.tejo.org/logado/" target="_blank">en la retejo</a>.
@@ -151,11 +152,11 @@
         <div class="mb-3">
           <label for="kampo-kunloghado">Mi volas loĝi en ĉambro por …</label>
           <select name="loghado" id="kampo-kunloghado" class="form-select" required>
-            <option name="viroj">Viroj</option>
-            <option name="virinoj">Virinoj</option>
-            <option name="familioj">Familioj</option>
-            <option name="glat">GLAT-amika</option>
-            <option name="negravas" selected>Ne gravas</option>
+            <option value="viroj">Viroj</option>
+            <option value="virinoj">Virinoj</option>
+            <option value="familioj">Familioj</option>
+            <option value="glat">GLAT-amika</option>
+            <option value="negravas" selected>Ne gravas</option>
           </select>
           <div class="form-text">
             Vidu fotojn kaj pliajn informojn pri la loĝebloj <a href="https://ijk2022.tejo.org/logado/" target="_blank">en la retejo</a>.
@@ -173,9 +174,9 @@
         <div class="mb-3">
           <label for="kampo-dormo">Mi planas ekdormi …</label>
           <select name="dormo" id="kampo-dormo" class="form-select" required>
-            <option name="frue">Frue</option>
-            <option name="malfrue" selected>Malfrue</option>
-            <option name="malfruege">Malfruege</option>
+            <option value="frue">Frue</option>
+            <option value="malfrue" selected>Malfrue</option>
+            <option value="malfruege">Malfruege</option>
           </select>
         </div>
 
@@ -187,9 +188,9 @@
         <div class="mb-3">
           <label for="kampo-mangho">Mi volas manĝi …</label>
           <select name="mangho" id="kampo-mangho" class="form-select" required>
-            <option name="vegane">Vegane</option>
-            <option name="vegetare" selected>Vegetare</option>
-            <option name="kunviande">Kunviande</option>
+            <option value="vegane">Vegane</option>
+            <option value="vegetare" selected>Vegetare</option>
+            <option value="kunviande">Kunviande</option>
           </select>
 
           <table id="mangho-tabelo" class="table">
@@ -296,14 +297,14 @@
         </div>
 
         <div class="mb-3">
-          <label for="kampo-chemizo">Mi ŝatus mendi belegan IJK-ĉemizon</label>
+          <label for="kampo-chemizo">Mi ŝatus ricevi belegan IJK-ĉemizon (senpaga ĝis la 9-a de novembro, poste €7,50)</label>
           <select name="chemizo" id="kampo-chemizo" class="form-select" required>
-            <option name="ne" selected>Ne, dankon</option>
-            <option name="S">Grandeco S</option>
-            <option name="M">Grandeco M</option>
-            <option name="L">Grandeco L</option>
-            <option name="XL">Grandeco XL</option>
-            <option name="XXL">Grandeco XXL</option>
+            <option value="ne" selected>Ne, dankon</option>
+            <option value="S">Grandeco S</option>
+            <option value="M">Grandeco M</option>
+            <option value="L">Grandeco L</option>
+            <option value="XL">Grandeco XL</option>
+            <option value="XXL">Grandeco XXL</option>
           </select>
         </div>
 
@@ -321,10 +322,10 @@
         <div class="mb-3">
           <label for="kampo-pago">Mi antaŭpagas …</label>
           <select name="pago" id="kampo-pago" class="form-select" required>
-            <option name="banko">Al la bankkonto de la IJK</option>
-            <option name="karto">Per kreditkarto</option>
-            <option name="paypal">Per PayPal</option>
-            <option name="organizanto">Per fizika mono al organizanto proksima al mi</option>
+            <option value="banko">Al la bankkonto de la IJK</option>
+            <option value="karto">Per kreditkarto</option>
+            <option value="paypal">Per PayPal</option>
+            <option value="organizanto">Per fizika mono al organizanto proksima al mi</option>
           </select>
         </div>
 

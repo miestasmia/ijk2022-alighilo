@@ -1,5 +1,5 @@
 <?php
-	require 'countries.php';
+	require('countries.php');
 
 	header('Content-Type: text/plain');
 	var_dump($_POST);
@@ -14,9 +14,9 @@
 		'shildnomo' => '/^[^\r\n]{0,30}$/',
 		'retposhtadreso' => '/^.{1,200}$/',
 		'naskightago' => $isDate,
-		'loghlando' => function ($country) {
-			foreach ($countryObj as $existingCountry) {
-				if ($countryObj[0] === $country) { return true; }
+		'loghlando' => function ($country) use ($countries) {
+			foreach ($countries as $existingCountry) {
+				if ($existingCountry[0] === $country) { return true; }
 			}
 			return false;
 		},
@@ -47,7 +47,29 @@
 			return in_array($val, [
 				'vegetare', 'vegane', 'kunviande'
 			]);
-		}
+		},
+
+		'chemizo' => function ($val) {
+			return in_array($val, [
+				'ne', 'S', 'M', 'L', 'XL', 'XXL'
+			]);
+		},
+		'donaco' => function ($val) {
+			$val = (float) $val;
+
+			if ($val !== (string) $val) {
+				return false;
+			}
+
+			return $val > 0 && $val <= 10000;
+		},
+		'pago' => function ($val) {
+			return in_array($val, [
+				'banko', 'karto', 'paypal', 'organizanto'
+			]);
+		},
+		'listo' => true,
+		'fotoj' => true,
 	];
 	foreach (range(20, 27) as $day) {
 		for ($j = 0; $j < 3; $j++) {

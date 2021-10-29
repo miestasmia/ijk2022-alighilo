@@ -166,6 +166,9 @@
         <div class="mb-3 form-check form-switch">
           <input name="littuko" id="kampo-littuko" type="checkbox" class="form-check-input">
           <label for="kampo-littuko">Mi kunportos miajn proprajn littukojn</label>
+          <div class="form-text">
+            Se vi kunportos proprajn littukojn, vi ricevos rabaton de €5.
+          </div>
         </div>
 
         <div class="mb-3">

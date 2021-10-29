@@ -81,6 +81,16 @@
 		}
 	}
 
+	foreach ($validators as $key => $validator) {
+		if (
+			(is_string($validator) && !preg_match($validator, $_POST[$key])) ||
+			(is_callable($validators) && !$validator($_POST[$key])) ||
+			($validators === true && isset($_POST[$key]) && $_POST[$key] !== 'on')
+		) {
+			exit("'" . $key . "' estas erara");
+		}
+	}
+
 	// Save to file
 	$file = './alighoj.csv';
 	if (!file_exists($file)) {

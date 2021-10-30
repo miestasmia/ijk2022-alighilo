@@ -66,6 +66,7 @@ function getFees () {
 	const otherFees = {
 		member: $$('#kampo-membreco').checked ? 0 : 50,
 		tShirt: getTShirtPrice(),
+		bedsheet: $$('#kampo-littuko').checked ? -5 : null,
 	};
 
 	let baseFee = null;
@@ -103,7 +104,10 @@ function renderFee () {
 
 	$$('#kotizo-loghado').textContent = fees.baseFees.housing === null ?
 		'kalkulota' :
-		formatMoney(fees.baseFees.housing);
+		formatMoney(fees.baseFees.housing) + 
+		(fees.otherFees.bedsheet === null ?
+			'' :
+			` (${formatMoney(fees.otherFees.bedsheet)}: littuka rabato)`);
 
 	$$('#kotizo-manghoj').textContent = formatMoney(fees.baseFees.food);
 

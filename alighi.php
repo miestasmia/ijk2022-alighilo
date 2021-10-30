@@ -1,9 +1,6 @@
 <?php
 	require('countries.php');
 
-	header('Content-Type: text/plain');
-	var_dump($_POST);
-
 	// Validation
 	$isDate = function ($date) {
 		return new DateTime($date) != null;
@@ -22,19 +19,21 @@
 		},
 		'shildlando' => '/^[^\r\n]{0,20}$/',
 		'membreco' => true,
-		'ueakodo' => '/^[a-z]{4}(-[a-z])?$/i',
+		'ueakodo' => '/^[a-z]{4}(-[a-z])?$|/i',
 		'partopreno-plentempa' => true,
 		'alveno' => function ($date) use ($isDate) {
 			if ($_POST['partopreno-plentempa']) {
 				return $date === '';
 			}
-			return $isDate($date);
+			if (!$isDate($date)) { return false; }
+			return $date < new DateTime('2022-08-20');
 		},
 		'foriro' => function ($date) use ($isDate) {
 			if ($_POST['partopreno-plentempa']) {
 				return $date === '';
 			}
-			return $isDate($date);
+			if (!$isDate($date)) { return false; }
+			return $date <= new DateTime('2022-08-28'); // plus unu pro horo
 		},
 		'loghado' => function ($val) {
 			return in_array($val, [
@@ -64,13 +63,10 @@
 			]);
 		},
 		'donaco' => function ($val) {
+			if (!is_numeric($val)) { return false; }
 			$val = (float) $val;
 
-			if ($val !== (string) $val) {
-				return false;
-			}
-
-			return $val > 0 && $val <= 10000;
+			return $val >= 0 && $val <= 10000;
 		},
 		'pago' => function ($val) {
 			return in_array($val, [
@@ -93,8 +89,8 @@
 	foreach ($validators as $key => $validator) {
 		if (
 			(is_string($validator) && !preg_match($validator, $_POST[$key])) ||
-			(is_callable($validators) && !$validator($_POST[$key])) ||
-			($validators === true && isset($_POST[$key]) && $_POST[$key] !== 'on')
+			(is_callable($validator) && !$validator($_POST[$key])) ||
+			($validator === true && isset($_POST[$key]) && $_POST[$key] !== 'on')
 		) {
 			exit("'" . $key . "' estas erara");
 		}
@@ -106,8 +102,55 @@
 		file_put_contents($file, '');
 	}
 
-	$data = json_encode($_POST);
+	$data = [
+		'nomo' => $_POST['nomo'],
+		'shildnomo' => $_POST['shildnomo'],
+		'retposhtadreso' => $_POST['retposhtadreso'],
+		'naskightago' => $_POST['naskightago'],
+		'loghlando' => $_POST['loghlando'],
+		'shildlando' => $_POST['shildlando'],
+		'membreco' => $_POST['membreco'] === 'on',
+		'ueakodo' => $_POST['ueakodo'],
+		'alveno' => $_POST['partopreno-plentempa'] === 'on' ? '2022-08-20' : $_POST['alveno'],
+		'foriro' => $_POST['partopreno-plentempa'] === 'on' ? '2022-08-27' : $_POST['foriro'],
+		'loghado' => $_POST['loghado'],
+		'kunloghado' => $_POST['kunloghado'],
+		'kunloghanto' => $_POST['kunloghanto'],
+		'dormo' => $_POST['dormo'],
+		'littuko' => $_POST['littuko'] === 'on',
+		'mangho' => $_POST['mangho'],
+		'chemizo' => $_POST['chemizo'],
+		'donaco' => $_POST['donaco'],
+		'pagmaniero' => $_POST['pago'],
+		'listo' => $_POST['listo'] === 'on',
+		'fotoj' => $_POST['alveno'] === 'on',
+	];
 
 	$fp = fopen($file, 'a');
-	fwrite($fp, $data . "\n");
+	fwrite($fp, json_encode($data) . "\n");
 	fclose($fp);
+?>
+<!doctype html>
+<html lang="eo">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="icon-small.png" sizes="32x32">
+    <link rel="icon" href="icon.png" sizes="192x192">
+    <link rel="apple-touch-icon-precomposed" href="icon-apple.png">
+    <title>Aliĝi al IJK 2022 en Nederlando</title>
+    <meta property="og:site_name" content="IJK 2022">
+    <meta name="description" content="La 78a IJK de TEJO okazos en De Roerdomp – Westelbeers, Nederlando, inter la 20-a kaj la 27-a de aŭgusto 2022. Ĝin organizos la Nederlanda Esperanto-Junularo.">
+    <meta property="og:description" content="La 78a IJK de TEJO okazos en De Roerdomp – Westelbeers, Nederlando, inter la 20-a kaj la 27-a de aŭgusto 2022. Ĝin organizos la Nederlanda Esperanto-Junularo.">
+  </head>
+  <body>
+  	<main>
+	  	<h1>Dankon pro via aliĝo, <?php echo $_POST['nomo']; ?>!</h1>
+	  	<p>
+	  		Ni sendos al vi retmesaĝon ene de la venontaj kelkaj tagoj post la komenca ŝtormo de aliĝoj.
+	  	</p>
+	</main>
+  </body>
+ </html>

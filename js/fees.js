@@ -133,6 +133,8 @@ function getProgramFee () {
 	if (!bdate) { return null; }
 	const age = moment('2022-08-20').diff(moment(bdate), 'y');
 
+	if (age <= 10) { return 0; }
+
 	const country = $$('#kampo-loghlando').value;
 	if (!country) { return null; }
 	let countryGroup = 2;

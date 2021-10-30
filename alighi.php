@@ -24,8 +24,18 @@
 		'membreco' => true,
 		'ueakodo' => '/^[a-z]{4}(-[a-z])?$/i',
 		'partopreno-plentempa' => true,
-		'alveno' => $isDate,
-		'foriro' => $isDate,
+		'alveno' => function ($date) use ($isDate) {
+			if ($_POST['partopreno-plentempa']) {
+				return $date === '';
+			}
+			return $isDate($date);
+		},
+		'foriro' => function ($date) use ($isDate) {
+			if ($_POST['partopreno-plentempa']) {
+				return $date === '';
+			}
+			return $isDate($date);
+		},
 		'loghado' => function ($val) {
 			return in_array($val, [
 				'1', '2', 'kelk', 'amas', 'tipio', 'tendo'
@@ -48,7 +58,6 @@
 				'vegetare', 'vegane', 'kunviande'
 			]);
 		},
-
 		'chemizo' => function ($val) {
 			return in_array($val, [
 				'ne', 'S', 'M', 'L', 'XL', 'XXL'

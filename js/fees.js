@@ -44,6 +44,9 @@ const FREE_T_SHIRT_DATE = moment('2021-11-09');
 $('main>form input,main>form select').forEach(el =>
 	el.addEventListener('change', renderFee)
 );
+$('main>form button').forEach(el =>
+	el.addEventListener('click', renderFee)
+);
 renderFee();
 
 function formatMoney (num) {

@@ -60,7 +60,6 @@ function toggleDateFields () {
 		const arrivalDate = $$('#kampo-alveno').value;
 		const leaveDate = $$('#kampo-foriro').value;
 
-
 		if (arrivalDate && leaveDate) {
 			const firstDay = moment(arrivalDate).date();
 			const lastDay = moment(leaveDate).date();

@@ -137,7 +137,23 @@ function renderFee () {
 		`Donaco al la IJK: ${formatMoney(fees.donation)}<br>`;
 }
 
+function getStayDuration () {
+	if ($$('#kampo-partopreno-plentempa').checked) { return 7; }
+
+	const arrivalDate = $$('#kampo-alveno').value;
+	const leaveDate = $$('#kampo-foriro').value;
+
+	if (!arrivalDate || !leaveDate) {
+		return null;
+	}
+
+	return moment(leaveDate).diff(arrivalDate, 'd');
+}
+
 function getProgramFee () {
+	const stayDuration = getStayDuration();
+	if (stayDuration === null) { return null; }
+
 	const bdate = $$('#kampo-naskightago').value;
 	if (!bdate) { return null; }
 	const age = moment('2022-08-20', 'YYYY-MM-DD').diff(moment(bdate), 'y');
@@ -161,6 +177,8 @@ function getProgramFee () {
 		break;
 	}
 
+	if (stayDuration <= 2) { fee /= 2; }
+
 	return fee;
 }
 
@@ -173,9 +191,15 @@ function getSignupFee () {
 }
 
 function getHousingFee () {
+	const stayDuration = getStayDuration();
+	if (stayDuration === null) { return null; }
+
 	const housingType = $$('#kampo-loghado').value;
 	if (!housingType) { return null; }
-	return HOUSING_FEE[housingType];
+
+	let fee = HOUSING_FEE[housingType];
+	if (stayDuration <= 2) { fee /= 2; }
+	return fee;
 }
 
 function getFoodFee () {

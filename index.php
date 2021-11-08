@@ -102,6 +102,9 @@
         <div class="mb-3 form-check form-switch">
           <input name="partopreno-plentempa" id="kampo-partopreno-plentempa" type="checkbox" class="form-check-input" checked>
           <label for="kampo-partopreno-plentempa">Mi ĉeestos la tutan tempon (la 20-a ĝis la 27-a de aŭgusto 2022)</label>
+          <div class="form-text">
+            Se vi restas nur du noktojn aŭ malpli, vi pagas duonan programkotizon kaj loĝkotizon.
+          </div>
         </div>
 
         <div id="kamparo-partopreno">
@@ -129,7 +132,8 @@
             <option value="ekster">Mem prizorgata loko ekter la kongrejo (€0)</option>
           </select>
           <div class="form-text">
-            Vidu fotojn kaj pliajn informojn pri la loĝebloj <a href="https://ijk2022.tejo.org/logado/" target="_blank">en la retejo</a>.
+            <p>Vidu fotojn kaj pliajn informojn pri la loĝebloj <a href="https://ijk2022.tejo.org/logado/" target="_blank">en la retejo</a>.</p>
+            <p>Se vi restas nur du noktojn aŭ malpli, vi pagas duonan programkotizon kaj loĝkotizon.</p>
           </div>
         </div>
 

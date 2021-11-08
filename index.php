@@ -7,7 +7,7 @@
         return '&#' . $codepoint . ';';
       }, range(127462, 127847));
       $emoji = str_replace(range('A', 'Z'), $emojiRange, $arr[0]);
-      return '<option value="' . $arr[0] . '">' . "$emoji " . $arr[1] . '</option>';
+      return '<option value="' . $arr[0] . '">' . $arr[1] . " $emoji</option>";
     },
     $countries
   );

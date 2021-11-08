@@ -155,9 +155,7 @@ function getProgramFee () {
 	}
 
 	let fee;
-	console.log(FEES)
 	for (const [maxAge, ageFees] of FEES) {
-		console.log(age, maxAge)
 		if (age > maxAge) { continue; }
 		fee = ageFees[countryGroup];
 		break;

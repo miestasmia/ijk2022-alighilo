@@ -133,7 +133,8 @@ function renderFee () {
 function getProgramFee () {
 	const bdate = $$('#kampo-naskightago').value;
 	if (!bdate) { return null; }
-	const age = moment('2022-08-20').diff(moment(bdate), 'y');
+	const age = moment('2022-08-20', 'YYYY-MM-DD').diff(moment(bdate), 'y');
+	if (isNaN(age)) { return null; }
 
 	if (age <= 10) { return 0; }
 
@@ -147,9 +148,12 @@ function getProgramFee () {
 	}
 
 	let fee;
+	console.log(FEES)
 	for (const [maxAge, ageFees] of FEES) {
+		console.log(age, maxAge)
 		if (age > maxAge) { continue; }
 		fee = ageFees[countryGroup];
+		break;
 	}
 
 	return fee;

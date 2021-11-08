@@ -223,7 +223,7 @@
 
         <div class="mb-3">
           <label for="kampo-dieto">Alergio/dietaj bezonoj</label>
-          <textarea name="dieto" id="kampo-dieto" class="form-control"></textarea>
+          <textarea name="dieto" id="kampo-dieto" class="form-control" maxlength="300"></textarea>
           <div class="form-text">
             Se vi havas alergiojn aŭ specialajn dietajn bezonojn (krom esti vegano aŭ vegetarano), bonvolu indiki ilin tie ĉi.
           </div>
@@ -231,7 +231,7 @@
 
         <div class="mb-3">
           <label for="kampo-kontribuo">Via kontribuo al la programo</label>
-          <textarea name="kontribuo" id="kampo-kontribuo" class="form-control"></textarea>
+          <textarea name="kontribuo" id="kampo-kontribuo" class="form-control" name="kontribuo"></textarea>
           <div class="form-text">
             Se vi ŝatus proponi vian propran programeron al la programo de la IJK, bonvolu detale priskribi ĝin tie ĉi. Indiku la titolon, la daŭron, ĉu estas prezento, diskuto, aktivaĵo aŭ ekstera aktivaĵo kaj kion vi bezonas por ĝi.
           </div>
@@ -259,7 +259,7 @@
 
           <div class="mb-3">
             <label for="kampo-vizo-pasportnumero">Mia pasportnumero/dokumentnumero</label>
-            <input name="vizo-pasportnumero" id="kampo-vizo-pasportnumero" class="form-control" required>
+            <input name="vizo-pasportnumero" id="kampo-vizo-pasportnumero" class="form-control" required maxlength="50">
           </div>
 
           <div class="mb-3">
@@ -274,7 +274,7 @@
 
           <div class="mb-3">
             <label for="kampo-vizo-adreso">Poŝtadreso inkluzive loĝlandon</label>
-            <textarea name="vizo-adreso" id="kampo-vizo-adreso" class="form-control"></textarea>
+            <textarea name="vizo-adreso" id="kampo-vizo-adreso" class="form-control" maxlength="200"></textarea>
           </div>
         </div>
 
@@ -326,6 +326,14 @@
           <label for="kampo-fotoj">Mi ne volas esti fotita</label>
         </div>
 
+        <div class="mb-3">
+          <label for="kampo-komentoj">Komentoj</label>
+          <textarea name="komentoj" id="kampo-komentoj" class="form-control" maxlength="200"></textarea>
+          <div class="form-text">
+            Se vi havas komentojn pri via aliĝo, vi povas lasi ilin ĉi tie.
+          </div>
+        </div>
+
         <div class="mb-3 form-check form-switch">
           <input id="kampo-antaupago" type="checkbox" class="form-check-input" required>
           <label for="kampo-antaupago">Mi komprenas, ke mi devas antaŭpagi minimume €20 por ke mia aliĝo estu valida</label>
@@ -342,6 +350,7 @@
         <button type="submit" class="btn btn-primary">Aliĝi al la IJK!</button>
       </form>
     </main>
+
     <section id="kotizo">
       <div>
         <h3>Via kotizo:</h3>

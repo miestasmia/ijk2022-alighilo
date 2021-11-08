@@ -5,31 +5,32 @@
 	$isDate = function ($date) {
 		return new DateTime($date) != null;
 	};
+	$isCountry = function ($country) use ($countries) {
+		foreach ($countries as $existingCountry) {
+			if ($existingCountry[0] === $country) { return true; }
+		}
+		return false;
+	};
 
 	$validators = [
 		'nomo' => '/^[^\r\n]{1,100}$/',
 		'shildnomo' => '/^[^\r\n]{0,30}$/',
 		'retposhtadreso' => '/^.{1,200}$/',
 		'naskightago' => $isDate,
-		'loghlando' => function ($country) use ($countries) {
-			foreach ($countries as $existingCountry) {
-				if ($existingCountry[0] === $country) { return true; }
-			}
-			return false;
-		},
+		'loghlando' => $isCountry,
 		'shildlando' => '/^[^\r\n]{0,20}$/',
 		'membreco' => true,
 		'ueakodo' => '/^[a-z]{4}(-[a-z])?$|/i',
 		'partopreno-plentempa' => true,
 		'alveno' => function ($date) use ($isDate) {
-			if ($_POST['partopreno-plentempa']) {
+			if (isset($_POST['partopreno-plentempa'])) {
 				return $date === '';
 			}
 			if (!$isDate($date)) { return false; }
 			return $date < new DateTime('2022-08-20');
 		},
 		'foriro' => function ($date) use ($isDate) {
-			if ($_POST['partopreno-plentempa']) {
+			if (isset($_POST['partopreno-plentempa'])) {
 				return $date === '';
 			}
 			if (!$isDate($date)) { return false; }
@@ -57,6 +58,8 @@
 				'vegetare', 'vegane', 'kunviande'
 			]);
 		},
+		'dieto' => '/^.{0,300}$/',
+		'kontribuo' => '/^.{0,500}$/',
 		'chemizo' => function ($val) {
 			return in_array($val, [
 				'ne', 'S', 'M', 'L', 'XL', 'XXL'
@@ -75,6 +78,27 @@
 		},
 		'listo' => true,
 		'fotoj' => true,
+		'vizo' => true,
+		'vizo-nacieco' => function ($country) use ($isCountry) {
+			if (!isset($_POST['vizo'])) { return true; }
+			return $isCountry($country);
+		},
+		'vizo-pasportnumero' => function ($pasportnumero) {
+			if (!isset($_POST['vizo'])) { return true; }
+			$len = strlen($pasportnumero);
+			return $len > 0 && $len <= 50;
+		},
+		'vizo-dato-ek' => function ($date) use ($isDate) {
+			if (!isset($_POST['vizo'])) { return true; }
+			return $isDate($date);
+		},
+		'vizo-dato-ghis' => function ($date) use ($isDate) {
+			if (!isset($_POST['vizo'])) { return true; }
+			return $isDate($date);
+		},
+		'komentoj' => '/^.{0,200}$/',
+		'novulo' => true,
+		'volontulo' => true,
 	];
 	foreach (range(20, 27) as $day) {
 		for ($j = 0; $j < 3; $j++) {
@@ -103,6 +127,7 @@
 	}
 
 	$data = [
+		'dato' => (new DateTime())->format('Y-m-d\TH:i:s'),
 		'nomo' => $_POST['nomo'],
 		'shildnomo' => $_POST['shildnomo'],
 		'retposhtadreso' => $_POST['retposhtadreso'],
@@ -123,7 +148,18 @@
 		'donaco' => $_POST['donaco'],
 		'pagmaniero' => $_POST['pago'],
 		'listo' => $_POST['listo'] === 'on',
-		'fotoj' => $_POST['alveno'] === 'on',
+		'fotoj' => $_POST['fotoj'] === 'on',
+		'novulo' => $_POST['novulo'] === 'on',
+		'dieto' => $_POST['dieto'],
+		'vizo' => $_POST['vizo'] === 'on',
+		'vizo-nacieco' => $_POST['vizo-nacieco'],
+		'vizo-pasportnumero' => $_POST['vizo-pasportnumero'],
+		'vizo-dato-ek' => $_POST['vizo-dato-ek'],
+		'vizo-dato-ghis' => $_POST['vizo-dato-ghis'],
+		'vizo-adreso' => $_POST['vizo-adreso'],
+		'volontulo' => $_POST['volontulo'] === 'on',
+		'kontribuo' => $_POST['kontribuo'],
+		'komentoj' => $_POST['komentoj'],
 	];
 
 	$fp = fopen($file, 'a');

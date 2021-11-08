@@ -83,6 +83,7 @@ function toggleDateFields () {
 			}
 		}
 	}
+	renderFee();
 }
 $('#kampo-partopreno-plentempa,#kampo-alveno,#kampo-foriro').forEach(el => el.addEventListener('change', toggleDateFields));
 toggleDateFields();

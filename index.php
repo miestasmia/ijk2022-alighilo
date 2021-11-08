@@ -87,7 +87,7 @@
           <input name="membreco" id="kampo-membreco" type="checkbox" class="form-check-input">
           <label for="kampo-membreco">Mi estas individua membro (IM) aŭ patrono de TEJO</label>
           <div class="form-text">
-            Se vi estas individua membro aŭ patrono de TEJO vi ne pagos malrabaton de €50. <a href="https://uea.org/alighoj/alighilo">Estas pli malmultekosta aliĝi al TEJO</a> ol ricevi malrabaton.
+            Se vi estas individua membro aŭ patrono de TEJO vi ne pagos malrabaton de €50. <a href="https://uea.org/alighoj/alighilo">Estas pli malmultekoste aliĝi al TEJO</a> ol ricevi malrabaton.
           </div>
         </div>
 

@@ -85,7 +85,9 @@ function getFees () {
 		donation = parseFloat($$('#kampo-donaco').value);
 		donation = Math.max(donation, 0);
 		donation = Math.min(donation, 10000);
-		totalFee += donation;
+		if (!hasNull) {
+			totalFee += donation;
+		}
 	}
 
 	return {

@@ -29,6 +29,8 @@ for (let i = 0; i < 3; i++) {
 			if (checkbox.disabled) { continue; }
 			checkbox.checked = hasUnchecked;
 		}
+		// Without this sometimes the calculation takes place before the checkboxes are updated
+		renderFee();
 	});
 }
 

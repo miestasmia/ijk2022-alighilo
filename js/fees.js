@@ -32,6 +32,9 @@ const HOUSING_FEE = {
 	tendo: 20,
 	ekster: 0,
 };
+const BEDSHEET_DISCOUNT = [
+	'1', '2', 'kelk', 'amas'
+];
 
 const FOOD_FEES = {
 	0: 2,
@@ -67,7 +70,10 @@ function getFees () {
 	const otherFees = {
 		member: $$('#kampo-membreco').checked ? 0 : 50,
 		tShirt: getTShirtPrice(),
-		bedsheet: $$('#kampo-littuko').checked ? -5 : null,
+		bedsheet: (
+			$$('#kampo-littuko').checked &&
+			BEDSHEET_DISCOUNT.includes($$('#kampo-loghado').value)
+		) ? -5 : null,
 	};
 
 	let baseFee = null;

@@ -30,6 +30,7 @@ const HOUSING_FEE = {
 	amas: 35,
 	tipio: 20,
 	tendo: 20,
+	ekster: 0,
 };
 
 const FOOD_FEES = {

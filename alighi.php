@@ -37,7 +37,7 @@
 		},
 		'loghado' => function ($val) {
 			return in_array($val, [
-				'1', '2', 'kelk', 'amas', 'tipio', 'tendo'
+				'1', '2', 'kelk', 'amas', 'tipio', 'tendo', 'ekster'
 			]);
 		},
 		'kunloghado' => function ($val) {

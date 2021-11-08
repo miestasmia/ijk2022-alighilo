@@ -126,6 +126,7 @@
             <option value="amas">Amasĉambro (€35)</option>
             <option value="tipio">Tipio ekstera por 8 personoj (€20)</option>
             <option value="tendo">Propra tendo ekstere (€20)</option>
+            <option value="ekster">Mem prizorgata loko ekter la kongrejo (€0)</option>
           </select>
           <div class="form-text">
             Vidu fotojn kaj pliajn informojn pri la loĝebloj <a href="https://ijk2022.tejo.org/logado/" target="_blank">en la retejo</a>.

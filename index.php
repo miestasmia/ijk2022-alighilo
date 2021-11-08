@@ -278,7 +278,7 @@
 
           <div class="mb-3">
             <label for="kampo-vizo-adreso">Poŝtadreso inkluzive loĝlandon</label>
-            <textarea name="vizo-adreso" id="kampo-vizo-adreso" class="form-control" maxlength="200"></textarea>
+            <textarea name="vizo-adreso" id="kampo-vizo-adreso" class="form-control" maxlength="200" required></textarea>
           </div>
         </div>
 

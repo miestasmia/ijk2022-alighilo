@@ -93,7 +93,7 @@ function toggleVisaFields () {
 	const visible = $$('#kampo-vizo').checked;
 	setVisible(fieldGroup, visible);
 
-	const inputs = $('input,select', fieldGroup);
+	const inputs = $('input,select,textarea', fieldGroup);
 	inputs.forEach(el => {
 		setBoolAttribute(el, 'required', visible);
 	});

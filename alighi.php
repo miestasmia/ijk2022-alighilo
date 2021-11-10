@@ -162,6 +162,16 @@
 		'komentoj' => $_POST['komentoj'],
 	];
 
+    foreach (range(20, 27) as $day) {
+        for ($j = 0; $j < 3; $j++) {
+            if (
+                ($day == 20 && $j != 2) ||
+                ($day == 27 && $j != 0)
+            ) { continue; }
+	        $data["mangho-$day-$j"] = $_POST["mangho-$day-$j"] === 'on';
+        }
+    }
+
 	$fp = fopen($file, 'a');
 	fwrite($fp, json_encode($data) . "\n");
 	fclose($fp);

@@ -1,6 +1,6 @@
 <?php
   setlocale(LC_ALL, 'eo');
-  require('countries.php');
+  require('inc/countries.php');
   $countrySelectArr = array_map(
     function ($arr) {
       $emojiRange = array_map(function ($codepoint) {

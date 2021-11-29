@@ -21,7 +21,7 @@
         </tr>
         <?php
 
-        require('countries.php');
+        require('inc/countries.php');
 
         $data = @file_get_contents("alighoj.csv");
 

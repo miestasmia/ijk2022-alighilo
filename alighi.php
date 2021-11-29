@@ -1,5 +1,5 @@
 <?php
-	require('countries.php');
+	require('inc/countries.php');
 
 	// Validation
 	$isDate = function ($date) {

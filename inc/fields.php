@@ -1,5 +1,6 @@
 <?php
 include_once('countries.php');
+include_once('util.php');
 
 $fields = [
 	'dato' => 'Dato/horo',
@@ -51,7 +52,6 @@ function getDataArr ($data) {
 	$dataArr = [
 		'dato',
 		'nomo',
-		'shildnomo'
 	];
 
 	if ($data['shildnomo']) {
@@ -110,7 +110,7 @@ function getDataArr ($data) {
 	if ($donaco > 0) {
 		$dataArr[] = [
 			$fields['donaco'],
-			number_format($donaco, 2, ',', '.') . '€'
+			format_eur($donaco)
 		];
 	}
 

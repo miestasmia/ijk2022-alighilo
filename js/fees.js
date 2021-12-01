@@ -4,6 +4,7 @@ const FEES = [
 	[ 35, [ 80, 65, 50 ] ],
 	[ 999, [ 110, 95, 80 ] ],
 ];
+
 const COUNTRY_GROUPS = [
 	[ 'AT', 'BE', 'GB', 'DK', 'FR', 'DE', 'IE', 'LU', 'NL', 'NO', 'SE', 'CH' ],
 	[
@@ -32,6 +33,7 @@ const HOUSING_FEE = {
 	tendo: 20,
 	ekster: 0,
 };
+
 const BEDSHEET_DISCOUNT = [
 	'1', '2', 'kelk', 'amas'
 ];

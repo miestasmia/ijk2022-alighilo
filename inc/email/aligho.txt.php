@@ -6,24 +6,26 @@ include_once('../countries.php');
 function renderAlighoEmailTxt ($data) {
 	$dataArr = getDataArr($data);
 	$dataMaxLen = max(array_map(function ($x) {
-		return strlen($x[0]);
+		return mb_strlen($x[0]);
 	}, $dataArr));
-	$dataStr = implode("\n", array_map(function ($x) {
+	$dataStr = implode("\n", array_map(function ($x) use ($dataMaxLen) {
 		$val = $x[1];
 		if (is_bool($val)) {
 			$val = $val ? 'Jes' : 'Ne';
 		}
-		$pad = str_pad($val, $dataMaxLen - strlen($x[0]), ' ', STR_PAD_LEFT);
-		return "{$x[0]}: $pad";
+		$pad = str_repeat(' ', 2 + $dataMaxLen - mb_strlen($x[0]));
+		return "{$x[0]}: $pad$val";
 	}, $dataArr));
 
 	$coal = 'coal';
 	return <<<"EOT"
 Kara {$coal($data['shildnomo'], $data['nomo'])},
 
+
 Ni sukcese ricevis vian aliĝon al la 78-a Internacia Junulara Kongreso! Vi aliĝis kun la jenaj informoj:
 
 {$dataStr}
+
 
 Via kalkulita kotizo estas:
 

@@ -76,11 +76,29 @@ function getDataArr ($data) {
 		$dataArr[] = 'ueakodo';
 	}
 
+	$fieldLoghado = [
+		'1' => 'Luksa unuopa ĉambro',
+		'2' => 'Luksa duopa ĉambro',
+		'kelk' => 'Lukseta ĉambro',
+		'amas' => 'Amasĉambro',
+		'tipio' => 'Tipio ekstera por 8 personoj',
+		'tendo' => 'Propra tendo ekstere',
+		'ekster' => 'Mem prizorgata loko ekter la kongresejo'
+	];
+
+	$fieldKunloghado = [
+		'viroj' => 'kun viroj',
+		'virinoj' => 'kun virinoj',
+		'familioj' => 'kun familioj',
+		'glat' => 'GLAT-amika',
+		'negravas' => 'Ne gravas'
+	];
+
 	array_push($dataArr,
 		'alveno',
 		'foriro',
-		'loghado',
-		'kunloghado',
+		[ $fields['loghado'], $fieldLoghado[$data['loghado']] ],
+		[ $fields['kunloghado'], $fieldKunloghado[$data['kunloghado']] ],
 		'kunloghanto',
 		'dormo',
 		'littuko',
@@ -96,8 +114,15 @@ function getDataArr ($data) {
 		];
 	}
 
+	$fieldPagmaniero = [
+		'banko' => 'Bankkonto de la IJK',
+		'karto' => 'Kreditkarto',
+		'paypal' => 'PayPal',
+		'organizanto' => 'Al organizanto'
+	];
+
 	array_push($dataArr,
-		'pagmaniero',
+		[ $fields['pagmaniero'], $fieldPagmaniero[$data['pagmaniero']] ],
 		'listo',
 		'fotoj',
 		'novulo',

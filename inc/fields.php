@@ -1,6 +1,7 @@
 <?php
 include_once('countries.php');
 include_once('util.php');
+include_once('fees.php');
 
 $fields = [
 	'dato' => 'Dato/horo',
@@ -94,6 +95,22 @@ function getDataArr ($data) {
 		'negravas' => 'Ne gravas'
 	];
 
+	$mealsData = getMeals($data);
+	$manghoj = [
+		0 => [],
+		1 => [],
+		2 => [],
+	];
+	foreach ($mealsData as $day => $mealsToday) {
+		foreach ($mealsToday as $mealType => $havingMeal) {
+			if (!$havingMeal) { continue; }
+			$manghoj[$mealType][] = $day;
+		}
+	}
+	$manghojStr = array_map(function ($days) {
+		return implode(', ', $days);
+	}, $manghoj);
+
 	array_push($dataArr,
 		'alveno',
 		'foriro',
@@ -103,6 +120,9 @@ function getDataArr ($data) {
 		'dormo',
 		'littuko',
 		'mangho',
+		[ 'Matenmanĝoj', $manghojStr[0] ],
+		[ 'Tagmanĝoj', $manghojStr[1] ],
+		[ 'Vespermanĝoj', $manghojStr[2] ],
 		'chemizo'
 	);
 

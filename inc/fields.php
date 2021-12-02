@@ -1,7 +1,7 @@
 <?php
-include_once('countries.php');
-include_once('util.php');
-include_once('fees.php');
+require_once(__DIR__ . '/countries.php');
+require_once(__DIR__ . '/util.php');
+require_once(__DIR__ . '/fees.php');
 
 $fields = [
 	'dato' => 'Dato/horo',

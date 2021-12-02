@@ -1,8 +1,8 @@
 <?php
-include_once('../util.php');
-include_once('../fields.php');
-include_once('../countries.php');
-include_once('../fees.php');
+require_once(__DIR__ . '/../util.php');
+require_once(__DIR__ . '/../fields.php');
+require_once(__DIR__ . '/../countries.php');
+require_once(__DIR__ . '/../fees.php');
 
 function renderAlighoEmailTxt ($data) {
 	$dataArr = getDataArr($data);
@@ -33,7 +33,7 @@ function renderAlighoEmailTxt ($data) {
 
 	$nemembrecoStr = '';
 	if ($fees['otherFees']['member']) {
-		$nemembrecoStr = '\nMalrabato pro nemembreco: ' . format_eur($fees['otherFees']['member']);
+		$nemembrecoStr = "\nMalrabato pro nemembreco: " . format_eur($fees['otherFees']['member']);
 	}
 
 	$pagmanieroStr = [

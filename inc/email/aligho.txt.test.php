@@ -1,5 +1,5 @@
 <?php
-include('aligho.txt.php');
+require_once(__DIR__ . '/aligho.txt.php');
 
 header('Content-Type: text/plain');
 

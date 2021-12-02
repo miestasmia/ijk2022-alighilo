@@ -1,5 +1,8 @@
 <?php
-	require('inc/countries.php');
+	require_once('inc/countries.php');
+	require_once('inc/email/aligho.txt.php');
+	require_once('inc/sendemail.php');
+	require_once('inc/util.php');
 
 	// Validation
 	$isDate = function ($date) {
@@ -172,9 +175,35 @@
         }
     }
 
+    // Write to alighoj.csv
 	$fp = fopen($file, 'a');
 	fwrite($fp, json_encode($data) . "\n");
 	fclose($fp);
+
+	// Send a confirmation email
+	sendEmail([
+		'from' => [
+			'email' => 'ijk2022@tejo.org',
+			'name' => 'La IJK 2022-teamo'
+		],
+		'personalizations' => [
+			[
+				'to' => [
+					[
+						'email' => $data['retposhtadreso'],
+						'name' => coal($data['shildnomo'], $data['nomo'])
+					]
+				],
+				'subject' => 'Vi sukcese aliĝis al IJK2022'
+			]
+		],
+		'content' => [
+			[
+				'type' => 'text/plain',
+				'value' => renderAlighoEmailTxt($data)
+			]
+		]
+	]);
 ?>
 <!doctype html>
 <html lang="eo">
@@ -195,7 +224,7 @@
   	<main>
 	  	<h1>Dankon pro via aliĝo, <?php echo $_POST['nomo']; ?>!</h1>
 	  	<p>
-	  		Ni sendos al vi retmesaĝon ene de la venontaj kelkaj tagoj post la komenca ŝtormo de aliĝoj.
+	  		Ni ĵus sendis al vi retmesaĝon konfirmante vian aliĝon. Se vi ĝin ne tuj trovas, eventuale kontrolu vian spamujon kaj atendu kelkajn minutojn okaze de sendmalfruo. Se daŭre vi ne trovas la mesaĝon, bonvolu skribi al ijk2022@tejo.org.
 	  	</p>
 	</main>
   </body>

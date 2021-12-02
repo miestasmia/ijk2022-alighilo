@@ -56,3 +56,5 @@ while (($line = fgets($fh_read)) !== false) {
 fclose($fh_read);
 fclose($fh_write);
 rename('../alighoj.csv.tmp', '../alighoj.csv');
+
+die('Farita.');

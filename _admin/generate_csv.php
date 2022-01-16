@@ -42,7 +42,7 @@ foreach (range(20, 27) as $day) {
 			($day == 20 && $j != 2) ||
 			($day == 27 && $j != 0)
 		) { continue; }
-		$data[] = "mangho-$day-$j";
+		$keys[] = "mangho-$day-$j";
 	}
 }
 

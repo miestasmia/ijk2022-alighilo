@@ -123,9 +123,6 @@
           <label for="kampo-loghado">Mi loĝos en …</label>
           <select name="loghado" id="kampo-loghado" class="form-select" required>
             <option value="" selected disabled>- Bonvolu elekti -</option>
-            <option value="1">Luksa unuopa ĉambro (€250)</option>
-            <option value="2">Luksa duopa ĉambro (€100)</option>
-            <option value="kelk">Lukseta ĉambro (4-6 homoj) (€50)</option>
             <option value="amas">Amasĉambro (€35)</option>
             <option value="tipio">Tipio ekstera por 8 personoj (€20)</option>
             <option value="tendo">Propra tendo ekstere (€20)</option>

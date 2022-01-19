@@ -60,7 +60,7 @@ while (($line = fgets($fh)) !== false) {
 
 	echo $i++;
 	foreach ($keys as $key) {
-		echo "\t" . ($data[$key] ?? '');
+		echo "\t" . str_replace(["\t", "\r", "\n"], ' ', ($data[$key] ?? ''));
 	}
 	echo "\n";
 }

@@ -232,7 +232,7 @@
 
         <div class="mb-3">
           <label for="kampo-kontribuo">Via kontribuo al la programo</label>
-          <textarea name="kontribuo" id="kampo-kontribuo" class="form-control" name="kontribuo"></textarea>
+          <textarea name="kontribuo" id="kampo-kontribuo" class="form-control" name="kontribuo" maxlength="500"></textarea>
           <div class="form-text">
             Se vi ŝatus proponi vian propran programeron al la programo de la IJK, bonvolu detale priskribi ĝin tie ĉi. Indiku la titolon, la daŭron, ĉu estas prezento, diskuto, aktivaĵo aŭ ekstera aktivaĵo kaj kion vi bezonas por ĝi.
           </div>

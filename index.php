@@ -124,7 +124,6 @@
           <select name="loghado" id="kampo-loghado" class="form-select" required>
             <option value="" selected disabled>- Bonvolu elekti -</option>
             <option value="amas">Amasĉambro (€35)</option>
-            <option value="tipio">Tipio ekstera por 8 personoj (€20)</option>
             <option value="tendo">Propra tendo ekstere (€20)</option>
             <option value="ekster">Mem prizorgata loko ekter la kongresejo (€0)</option>
           </select>

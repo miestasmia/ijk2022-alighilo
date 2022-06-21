@@ -41,7 +41,10 @@
 		},
 		'loghado' => function ($val) {
 			return in_array($val, [
-				'amas', 'tipio', 'tendo', 'ekster'
+				'amas',
+				// 'tipio',
+				'tendo',
+				'ekster'
 			]);
 		},
 		'kunloghado' => function ($val) {

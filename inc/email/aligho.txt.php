@@ -38,7 +38,7 @@ function renderAlighoEmailTxt ($data) {
 
 	$pagmanieroStr = [
 		'banko' => 'Se vi ankoraŭ ne faris, sendu vian antaŭpagon de almenaŭ 20€ baldaŭ al NL85 RABO 0147 9494 24, (BIC: RABONL2U), nome de Nederlandse Esperanto-Jongeren, Utrecht kun la priskribo "IJK 2022 [ŝildnomo]".',
-		'karto' => 'Ni ankoraŭ ne havas pretan sistemon por pagoj per kreditkartoj. Ni informos tuj kiam tiu pagmaniero estas preta.',
+		'karto' => 'Por pagi per kreditkarto iru al la paĝo https://uea.org/alighoj/spagilo. Kiel pago-celon elektu \'Pago por IJK\', kaj en la akompanaj notoj skribu "IJK2022 [ŝildnomo]".',
 		'paypal' => 'Se vi ankoraŭ ne faris, sendu vian antaŭpagon de almenaŭ 20€ per PayPal al financoj@co.uea.org kun la priskribo "IJK2022 [ŝildnomo]". Atentu se vi sendas monon en alia valuto ol eŭroj: Ĉar PayPal prenas kotizon pro konverto de valutoj, indas aldoni 10% al la pago por esti certa ke almenaŭ 20€ atingas nin.',
 		'organizanto' => 'Se vi ankoraŭ ne faris, trovu organizanton kaj donu al ri vian antaŭpagon de almenaŭ 20€.'
 	][$data['pagmaniero']];
